@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulasi TKA Literasi & Numerasi SD (50 Soal Terbaru)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    .option-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .option-card:hover {
+      transform: translateY(-2px);
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #certificateModal, #certificateModal * {
+        visibility: visible;
+      }
+      #certificateModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 flex flex-col">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-gradient-to-r from-blue-700 via-indigo-800 to-indigo-900 text-white shadow-lg sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      <div class="flex items-center space-x-3.5">
+        <div class="bg-white/10 p-2.5 rounded-xl border border-white/10 shadow-inner">
+          <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-lg sm:text-xl tracking-tight leading-tight">TKA Literasi & Numerasi SD</h1>
+          <p class="text-xs text-blue-200 hidden sm:block font-medium">50 Soal Kurikulum Terbaru & Sertifikat Resmi</p>
+        </div>
+      </div>
+
+      <!-- Exam Timer & Material Action -->
+      <div id="examHeaderInfo" class="hidden items-center space-x-3">
+        <button onclick="toggleMaterialModal()" class="text-xs sm:text-sm bg-white/10 hover:bg-white/20 border border-white/20 px-3.5 py-2 rounded-xl font-semibold transition flex items-center gap-1.5 backdrop-blur-xs">
+          <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span class="hidden sm:inline">Modul Materi</span>
+        </button>
+        <div id="timerBox" class="bg-indigo-950/80 border border-indigo-400/40 px-4 py-2 rounded-xl flex items-center space-x-2 shadow-inner">
+          <svg class="w-4 h-4 text-amber-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span id="timerDisplay" class="font-mono font-extrabold text-sm sm:text-base tracking-widest text-amber-300">45:00</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- 1. LANDING / WELCOME SCREEN -->
+    <div id="welcomeScreen" class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-3xl shadow-xl border border-slate-200/80 overflow-hidden backdrop-blur-md">
+        <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-indigo-900 p-8 sm:p-10 text-white relative overflow-hidden">
+          <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+          <span class="inline-block bg-amber-400 text-slate-900 text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-xs">Bank Soal Diperbarui (50 Soal Terlengkap)</span>
+          <h2 class="text-3xl sm:text-4xl font-black mb-3 tracking-tight">Simulasi Tes Kemampuan Akademik (TKA) SD</h2>
+          <p class="text-blue-100 text-sm sm:text-base max-w-2xl font-medium leading-relaxed">Uji pemahaman literasi membaca mendalam dan penalaran numerasi matematika tingkat SD. Raih skor minimal **80** untuk mengunduh **Sertifikat Kelulusan Resmi**!</p>
+        </div>
+
+        <div class="p-8 sm:p-10 space-y-8">
+          <!-- Info Grid Cards -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition">
+              <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Total Soal</p>
+              <p class="text-2xl font-extrabold text-blue-600 mt-1">50 Soal</p>
+              <p class="text-xs text-slate-400 font-medium">Pilihan Ganda</p>
+            </div>
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition">
+              <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Durasi Tes</p>
+              <p class="text-2xl font-extrabold text-blue-600 mt-1">45 Menit</p>
+              <p class="text-xs text-slate-400 font-medium">Hitung Mundur</p>
+            </div>
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition">
+              <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Standar Sertifikat</p>
+              <p class="text-2xl font-extrabold text-emerald-600 mt-1">≥ 80</p>
+              <p class="text-xs text-slate-400 font-medium">Skor Kelulusan</p>
+            </div>
+            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 text-center hover:border-blue-300 transition">
+              <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Komposisi</p>
+              <p class="text-lg font-extrabold text-amber-600 mt-1">25 Literasi & 25 Numerasi</p>
+              <p class="text-xs text-slate-400 font-medium">Proporsional</p>
+            </div>
+          </div>
+
+          <!-- Input Name & Mode -->
+          <div class="grid sm:grid-cols-2 gap-6 bg-gradient-to-br from-blue-50/70 to-indigo-50/50 p-6 rounded-2xl border border-blue-100">
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Nama Lengkap Peserta Ujian</label>
+              <input type="text" id="studentNameInput" placeholder="Contoh: Muhammad Farhan" value="Siswa Berprestasi" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm font-semibold bg-white shadow-xs">
+              <p class="text-xs text-slate-500 mt-1.5 font-medium">Nama ini akan tercetak otomatis pada Sertifikat Simulasi TKA.</p>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-700 mb-2">Pilihan Durasi Waktu</label>
+              <select id="simulationMode" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm font-semibold bg-white shadow-xs">
+                <option value="45">Simulasi Standar Resmi (45 Menit)</option>
+                <option value="30">Simulasi Cepat / Tantangan (30 Menit)</option>
+                <option value="60">Mode Latihan Santai (60 Menit)</option>
+              </select>
+              <p class="text-xs text-slate-500 mt-1.5 font-medium">Pilih durasi pengerjaan sesuai tingkat kesiapanmu.</p>
+            </div>
+          </div>
+
+          <!-- Rules -->
+          <div class="space-y-2.5">
+            <h3 class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">Petunjuk Pengerjaan:</h3>
+            <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside font-medium">
+              <li>Tes terdiri dari 25 soal <strong>Literasi Membaca</strong> dan 25 soal <strong>Numerasi Matematika</strong> (total 50 soal).</li>
+              <li>Gunakan tombol tanda <strong>"Ragu-Ragu"</strong> berwarna kuning apabila ingin meninjau kembali soal tertentu.</li>
+              <li>Siswa yang berhasil memperoleh <strong>Nilai Minimal 80</strong> dapat langsung mengunduh/mencetak **Sertifikat Kelulusan TKA Resmi**.</li>
+            </ul>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200">
+            <button onclick="toggleMaterialModal()" class="w-full sm:w-auto px-6 py-3.5 rounded-xl border-2 border-blue-600 text-blue-700 font-bold hover:bg-blue-50 transition flex items-center justify-center gap-2 text-sm shadow-xs">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              Pelajari Modul Ringkasan Materi
+            </button>
+            <button onclick="startSimulation()" class="w-full sm:w-auto px-9 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold shadow-xl shadow-blue-200 transition flex items-center justify-center gap-2.5 text-base">
+              <span>Mulai Ujian 50 Soal</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. EXAM INTERFACE (CBT LAYOUT) -->
+    <div id="examScreen" class="hidden grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- Left: Question & Options (8 cols) -->
+      <div class="lg:col-span-8 bg-white rounded-3xl shadow-xl border border-slate-200/80 overflow-hidden flex flex-col justify-between min-h-[560px]">
+        <div>
+          <!-- Header -->
+          <div class="bg-slate-50 px-6 py-4.5 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center space-x-3">
+              <span class="bg-blue-600 text-white font-black px-4 py-1.5 rounded-xl text-sm shadow-xs">
+                SOAL NO. <span id="currentQNum">1</span> / 50
+              </span>
+              <span id="currentQCategory" class="bg-blue-100 text-blue-800 font-bold px-3.5 py-1.5 rounded-full text-xs">
+                Literasi Membaca
+              </span>
+            </div>
+            <div class="flex items-center space-x-2 text-xs text-slate-500 font-medium">
+              <span>Ukuran Teks:</span>
+              <button onclick="changeFontSize('text-sm')" class="px-2.5 py-1 rounded-lg border hover:bg-slate-200 font-semibold bg-white">A-</button>
+              <button onclick="changeFontSize('text-base')" class="px-2.5 py-1 rounded-lg border hover:bg-slate-200 font-bold bg-white">A</button>
+              <button onclick="changeFontSize('text-lg')" class="px-2.5 py-1 rounded-lg border hover:bg-slate-200 font-extrabold bg-white">A+</button>
+            </div>
+          </div>
+
+          <!-- Body -->
+          <div class="p-6 sm:p-8">
+            <div id="questionText" class="text-base text-slate-800 leading-relaxed font-semibold mb-6 whitespace-pre-line">
+              <!-- Question loaded here -->
+            </div>
+
+            <!-- Options -->
+            <div id="optionsContainer" class="space-y-3.5">
+              <!-- Options loaded here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="bg-slate-50 px-6 py-4.5 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <button id="prevBtn" onclick="navigateQuestion(-1)" class="px-5 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-100 transition flex items-center gap-1.5 shadow-xs disabled:opacity-40 disabled:pointer-events-none">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Sebelumnya
+          </button>
+
+          <!-- Ragu-ragu -->
+          <label class="flex items-center space-x-2.5 cursor-pointer bg-amber-400/20 border-2 border-amber-400 px-4 py-2 rounded-xl select-none hover:bg-amber-400/30 transition shadow-xs">
+            <input type="checkbox" id="doubtCheckbox" onchange="toggleDoubt()" class="w-4 h-4 accent-amber-600 rounded cursor-pointer">
+            <span class="text-sm font-extrabold text-amber-900">Ragu-Ragu</span>
+          </label>
+
+          <button id="nextBtn" onclick="navigateQuestion(1)" class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 transition flex items-center gap-1.5 shadow-md">
+            <span>Selanjutnya</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Palette Grid (4 cols) -->
+      <div class="lg:col-span-4 bg-white rounded-3xl shadow-xl border border-slate-200/80 p-6 sticky top-22 max-h-[85vh] flex flex-col">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3.5 mb-4 shrink-0">
+          <h3 class="font-extrabold text-slate-800 text-xs uppercase tracking-wider">Navigasi Nomor Soal</h3>
+          <span id="answeredCounter" class="text-xs font-extrabold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full shadow-xs">0 / 50 Terjawab</span>
+        </div>
+
+        <!-- Number Grid (Scrollable) -->
+        <div id="questionGrid" class="grid grid-cols-5 gap-2 mb-4 overflow-y-auto pr-1 max-h-[280px]">
+          <!-- Grid injected via JS -->
+        </div>
+
+        <!-- Legend -->
+        <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600 border-t border-slate-100 pt-3 mb-4 font-medium shrink-0">
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded-lg bg-emerald-500 inline-block shadow-xs"></span>
+            <span>Terjawab</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded-lg bg-amber-400 inline-block shadow-xs"></span>
+            <span>Ragu-Ragu</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded-lg bg-white border-2 border-blue-600 inline-block shadow-xs"></span>
+            <span>Aktif</span>
+          </div>
+          <div class="flex items-center space-x-1.5">
+            <span class="w-3.5 h-3.5 rounded-lg bg-slate-100 border border-slate-300 inline-block"></span>
+            <span>Belum</span>
+          </div>
+        </div>
+
+        <button onclick="confirmSubmitExam()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-lg shadow-emerald-100 transition flex items-center justify-center gap-2 shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Selesai & Kumpulkan Ujian
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. RESULT & ANALYTICS SCREEN -->
+    <div id="resultScreen" class="hidden max-w-5xl mx-auto space-y-6">
+      
+      <!-- Score Banner -->
+      <div class="bg-white rounded-3xl shadow-xl border border-slate-200/80 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-700 via-indigo-800 to-indigo-900 p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center md:text-left">
+            <span class="bg-white/20 text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-wider">Laporan Hasil Evaluasi TKA SD</span>
+            <h2 id="resultStudentName" class="text-2xl sm:text-3xl font-black">Siswa Berprestasi</h2>
+            <p id="resultPredicate" class="text-blue-100 text-sm sm:text-base font-semibold"></p>
+            <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-2 text-xs text-blue-200 font-medium">
+              <span id="timeTakenDisplay">⏱️ Waktu Pengerjaan: 00:00</span>
+              <span>•</span>
+              <span id="accuracyDisplay">🎯 Akurasi: 0%</span>
+            </div>
+          </div>
+
+          <!-- Score Card -->
+          <div class="bg-white text-slate-900 rounded-2xl p-6 min-w-[180px] text-center shadow-xl border border-slate-100">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Nilai Akhir</p>
+            <p id="finalScoreDisplay" class="text-5xl font-black text-blue-600 my-1.5">100</p>
+            <p id="correctCountDisplay" class="text-xs font-extrabold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full inline-block">50 / 50 Benar</p>
+          </div>
+        </div>
+
+        <!-- Breakdown & Certificate Action -->
+        <div class="p-8 space-y-6">
+          <div id="certBannerBox" class="hidden bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 p-6 rounded-2xl shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-4 text-center sm:text-left">
+              <div class="bg-white p-3 rounded-2xl shadow-sm">
+                <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-black text-lg text-white">Selamat! Kamu Memenuhi Syarat Sertifikat</h4>
+                <p class="text-xs text-amber-100 font-medium">Nilaimu sudah mencapai 80 atau lebih. Unduh Sertifikat Simulasi TKA resmimu sekarang!</p>
+              </div>
+            </div>
+            <button onclick="openCertificateModal()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-amber-50 text-slate-900 font-extrabold shadow-md transition text-sm flex items-center justify-center gap-2">
+              <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+              Buka & Unduh Sertifikat
+            </button>
+          </div>
+
+          <h3 class="font-extrabold text-slate-800 text-sm uppercase tracking-wider">Analisis Penguasaan Per Domain:</h3>
+          <div id="categoryBreakdownContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Cards loaded here -->
+          </div>
+
+          <div class="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex flex-wrap gap-2">
+              <button onclick="filterReview('all')" id="filterAll" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white transition shadow-xs">Semua Soal (50)</button>
+              <button onclick="filterReview('wrong')" id="filterWrong" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Jawaban Salah / Kosong</button>
+              <button onclick="filterReview('correct')" id="filterCorrect" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition">Jawaban Benar</button>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <button onclick="toggleMaterialModal()" class="px-5 py-2.5 rounded-xl border border-blue-600 text-blue-600 font-extrabold text-xs sm:text-sm hover:bg-blue-50 transition shadow-xs">
+                Modul Materi
+              </button>
+              <button onclick="resetSimulation()" class="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-extrabold text-xs sm:text-sm hover:bg-blue-700 transition shadow-md">
+                Ulangi Simulasi
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Review List -->
+      <div id="reviewContainer" class="space-y-4">
+        <!-- Loaded via JS -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODAL 1: RINGKASAN MATERI -->
+  <div id="materialModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[88vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden">
+      <div class="bg-blue-700 text-white px-6 py-4.5 flex items-center justify-between">
+        <div class="flex items-center space-x-2.5">
+          <svg class="w-5 h-5 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          <h3 class="font-extrabold text-lg">Modul Materi TKA: Literasi & Numerasi SD</h3>
+        </div>
+        <button onclick="toggleMaterialModal()" class="text-blue-200 hover:text-white p-1">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-6 sm:p-8 overflow-y-auto space-y-6 text-sm text-slate-700 leading-relaxed font-medium">
+        <div class="bg-blue-50/70 border border-blue-200 rounded-2xl p-5">
+          <h4 class="font-extrabold text-blue-900 text-base mb-2">1. Domain Literasi Membaca (25 Soal)</h4>
+          <ul class="list-disc list-inside space-y-1.5">
+            <li><strong>Informasi Tersurat & Tersirat:</strong> Menemukan detail teks, watak tokoh, makna kata/sinonim/antonim, serta pesan moral dalam teks fiksi maupun informasi.</li>
+            <li><strong>Ide Pokok & Simpulan:</strong> Menyimpulkan gagasan utama paragraf serta menilai kesesuaian informasi poster atau instruksi teks.</li>
+          </ul>
+        </div>
+        <div class="bg-indigo-50/70 border border-indigo-200 rounded-2xl p-5">
+          <h4 class="font-extrabold text-indigo-900 text-base mb-2">2. Domain Numerasi Matematika (25 Soal)</h4>
+          <ul class="list-disc list-inside space-y-1.5">
+            <li><strong>Bilangan & Pecahan:</strong> Operasi hitung campuran pecahan, desimal, persentase, serta KPK/FPB dalam kehidupan nyata.</li>
+            <li><strong>Aljabar & Pola Bilangan:</strong> Barisan bilangan bertingkat dan perhitungan aljabar dasar.</li>
+            <li><strong>Geometri & Pengukuran:</strong> Luas bangun datar gabungan, volume kubus/balok, kecepatan, jarak, waktu, serta konversi satuan berat/panjang.</li>
+            <li><strong>Data & Statistik:</strong> Membaca tabel, diagram batang, serta rata-rata (mean) data.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 flex justify-end">
+        <button onclick="toggleMaterialModal()" class="px-6 py-2.5 bg-blue-600 text-white font-extrabold rounded-xl text-sm hover:bg-blue-700 transition shadow-sm">
+          Tutup Materi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: SERTIFIKAT KELULUSAN -->
+  <div id="certificateModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div id="certificateCard" class="bg-white rounded-3xl max-w-4xl w-full p-8 sm:p-12 shadow-2xl border-8 border-amber-400 relative text-center space-y-6 overflow-hidden">
+      <!-- Watermark background decoration -->
+      <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
+        <svg class="w-96 h-96 text-blue-900" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+
+      <button onclick="closeCertificateModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 p-2 print:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <div class="space-y-2">
+        <div class="inline-block bg-amber-100 text-amber-800 font-extrabold text-xs uppercase px-4 py-1.5 rounded-full tracking-widest border border-amber-300">
+          Sertifikat Penghargaan Resmi
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-blue-950 tracking-tight font-serif">SERTIFIKAT KOMPETENSI TKA</h2>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">Diberikan sebagai pengakuan atas pencapaian akademik dalam Simulasi TKA 50 Soal Terpadu</p>
+      </div>
+
+      <div class="py-4 space-y-2">
+        <p class="text-sm text-slate-600 font-medium italic">Sertifikat ini dianugerahkan kepada:</p>
+        <h3 id="certStudentName" class="text-2xl sm:text-4xl font-black text-blue-700 underline decoration-amber-400 decoration-wavy underline-offset-8 py-2">Nama Siswa</h3>
+        <p id="certScoreText" class="text-sm sm:text-base text-slate-700 font-semibold pt-2">Telah menyelesaikan simulasi dengan predikat Sangat Memuaskan (Nilai: 90)</p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200 text-xs sm:text-sm text-slate-600 font-medium">
+        <div>
+          <p class="font-bold text-slate-800">Tanggal Ujian</p>
+          <p id="certDateStr">30 Oktober 2026</p>
+        </div>
+        <div>
+          <p class="font-bold text-slate-800">Nomor Sertifikat</p>
+          <p class="font-mono text-blue-600">TKA-SD50/2026/5089</p>
+        </div>
+        <div>
+          <p class="font-bold text-slate-800">Tim Evaluasi</p>
+          <p class="text-blue-700 font-bold">Pusat Simulasi Akademik SD</p>
+        </div>
+      </div>
+
+      <div class="pt-4 flex items-center justify-center gap-4 print:hidden">
+        <button onclick="window.print()" class="px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm shadow-lg shadow-blue-200 transition flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          Cetak / Unduh PDF
+        </button>
+        <button onclick="closeCertificateModal()" class="px-6 py-3.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-sm transition">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: KONFIRMASI SUBMIT -->
+  <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-slate-200 text-center space-y-4">
+      <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+      </div>
+      <h3 class="text-xl font-black text-slate-800">Kumpulkan Jawaban Sekarang?</h3>
+      <p id="confirmModalText" class="text-sm text-slate-600 leading-relaxed font-medium"></p>
+      <div class="flex gap-3 pt-2">
+        <button onclick="closeConfirmModal()" class="flex-1 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-100 transition shadow-xs">
+          Periksa Lagi
+        </button>
+        <button onclick="submitExam()" class="flex-1 py-3 rounded-xl bg-emerald-600 text-white font-extrabold text-sm hover:bg-emerald-700 shadow-lg shadow-emerald-100 transition">
+          Ya, Kumpulkan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT DATA (50 SOAL TERBARU) & APP LOGIC -->
+  <script>
+    const questions = [
+      // --- LITERASI MEMBACA (Soal 1 - 25) ---
+      {
+        id: 1,
+        category: "Literasi Membaca",
+        question: "Bacalah paragraf informasi berikut!\n\n\"Hutan bakau atau mangrove memiliki akar tunjang yang kokoh dan mampu bertahan di lingkungan perairan berlumpur pasang surut. Keberadaan ekosistem bakau di garis pantai berfungsi sebagai pelindung alami yang meredam energi gelombang besar dan mencegah abrasi tanah pesisir.\"\n\nPernyataan yang sesuai dan merupakan fungsi utama hutan bakau berdasarkan teks di atas adalah ....",
+        options: [
+          "Menghasilkan kayu keras untuk bahan perabot rumah tangga.",
+          "Menjadi tempat tinggal utama bagi mamalia darat di pegunungan.",
+          "Meredam gelombang besar dan mencegah abrasi di wilayah pesisir.",
+          "Menjaga suhu udara di daratan agar tetap dingin sepanjang tahun."
+        ],
+        correct: 2,
+        explanation: "Berdasarkan teks, fungsi utama hutan bakau adalah meredam energi gelombang besar dan mencegah abrasi tanah pesisir."
+      },
+      {
+        id: 2,
+        category: "Literasi Membaca",
+        question: "Bacalah penggalan cerita fiksi berikut!\n\n\"Meskipun hari sudah menjelang petang dan gerimis mulai turun, Kancil tetap melangkah mantap menyusuri pinggir sungai. Ia teringat pesan ibunya untuk segera mengantarkan obat herbal kepada Kura-kura yang sedang sakit di seberang bukit.\"\n\nWatak tokoh Kancil dalam penggalan cerita tersebut adalah ....",
+        options: ["Pemalas", "Bertanggung jawab dan peduli", "Sombong", "Penakut"],
+        correct: 1,
+        explanation: "Kancil tetap menepati janji mengantarkan obat meskipun gerimis, menunjukkan sifat bertanggung jawab dan peduli."
+      },
+      {
+        id: 3,
+        category: "Literasi Membaca",
+        question: "Sinonim (persamaan makna) dari kata **EFISIEN** adalah ....",
+        options: ["Tepat guna", "Lambat", "Rumit", "Mahal"],
+        correct: 0,
+        explanation: "Efisien berarti tepat atau mampu menjalankan tugas dengan cermat tanpa membuang waktu dan tenaga (tepat guna)."
+      },
+      {
+        id: 4,
+        category: "Literasi Membaca",
+        question: "Bacalah teks petunjuk penggunaan obat cair anak berikut:\n• Usia 2–5 tahun: 2,5 ml, 3 kali sehari.\n• Usia 6–12 tahun: 5 ml, 3 kali sehari.\nJika anak berusia 8 tahun meminum obat tersebut selama 2 hari penuh, total volume obat yang diminum adalah ....",
+        options: ["15 ml", "20 ml", "30 ml", "45 ml"],
+        correct: 2,
+        explanation: "Anak 8 tahun minum 5 ml × 3 kali = 15 ml/hari. Selama 2 hari = 15 ml × 2 = 30 ml."
+      },
+      {
+        id: 5,
+        category: "Literasi Membaca",
+        question: "Bacalah paragraf berikut:\n\n\"Gempa bumi tektonik terjadi akibat pelepasan energi secara tiba-tiba di dalam kerak bumi yang menciptakan gelombang seismik. Indonesia merupakan wilayah rawan gempa karena dilalui oleh tiga lempeng utama dunia.\"\n\nIde pokok paragraf di atas adalah ....",
+        options: ["Proses gelombang seismik", "Penyebab Indonesia rawan gempa", "Jumlah lempeng bumi", "Dampak gempa tektonik"],
+        correct: 1,
+        explanation: "Paragraf tersebut membahas alasan atau penyebab mengapa Indonesia rawan gempa."
+      },
+      {
+        id: 6,
+        category: "Literasi Membaca",
+        question: "Iklan: \"Mari hemat penggunaan air bersih demi kelangsungan hidup generasi masa depan!\"\nTujuan utama iklan tersebut adalah ....",
+        options: ["Mengajak boros air", "Memberitahu cara membuat sumur", "Mengimbau menghemat air", "Melarang mandi di keran"],
+        correct: 2,
+        explanation: "Iklan tersebut berisi ajakan persuasif kepada masyarakat untuk menghemat air bersih."
+      },
+      {
+        id: 7,
+        category: "Literasi Membaca",
+        question: "Bagian buku yang memuat daftar judul bab beserta nomor halamannya secara berurutan disebut ....",
+        options: ["Glosarium", "Daftar Pustaka", "Daftar Isi", "Indeks"],
+        correct: 2,
+        explanation: "Daftar isi menyajikan rincian judul bab beserta nomor halaman tempat materi berada."
+      },
+      {
+        id: 8,
+        category: "Literasi Membaca",
+        question: "Kalimat: \"Ibu pergi ke pasar tradisional untuk membeli sayur dan buah.\"\nKata depan (preposisi) yang menunjukkan arah atau tempat tujuan dalam kalimat tersebut adalah ....",
+        options: ["ke", "untuk", "dan", "di"],
+        correct: 0,
+        explanation: "Kata depan 'ke' menunjukkan arah atau tempat tujuan."
+      },
+      {
+        id: 9,
+        category: "Literasi Membaca",
+        question: "Antonim (lawan kata) dari kata **NOMADEN** (berpindah-pindah) adalah ....",
+        options: ["Statis", "Menetap", "Modern", "Kompleks"],
+        correct: 1,
+        explanation: "Lawan kata dari hidup berpindah-pindah adalah menetap (sedenter)."
+      },
+      {
+        id: 10,
+        category: "Literasi Membaca",
+        question: "Pantun:\n*Pergi ke kebun memetik tomat,*\n*Jangan lupa membawa keranjang.*\n*Jika kamu rajin belajar dan berhemat,*\n*Masa depan cerah pasti datang.*\n\nAmanat pantun di atas adalah ....",
+        options: ["Rajin memetik tomat", "Membawa keranjang pasar", "Pentingnya rajin belajar dan berhemat", "Keuntungan menjual tomat"],
+        correct: 2,
+        explanation: "Baris ketiga dan keempat menyampaikan pesan agar rajin belajar dan berhemat demi masa depan."
+      },
+      {
+        id: 11,
+        category: "Literasi Membaca",
+        question: "Bacalah teks berikut!\n\n\"Sampah plastik memerlukan waktu ratusan tahun untuk dapat terurai secara alami di dalam tanah. Oleh karena itu, penggunaan kantong belanja kain ramah lingkungan sangat dianjurkan untuk mengurangi volume sampah di tempat pembuangan akhir.\"\n\nSimpulan teks tersebut adalah ....",
+        options: [
+          "Sampah plastik mudah hancur dalam hitungan hari.",
+          "Penggunaan kantong kain dianjurkan untuk mengurangi sampah plastik.",
+          "Tempat pembuangan akhir sudah penuh dengan sampah kain.",
+          "Kantong plastik lebih baik daripada kantong kain."
+        ],
+        correct: 1,
+        explanation: "Simpulan merangkum inti teks bahwa kantong kain dianjurkan untuk mengurangi sampah plastik."
+      },
+      {
+        id: 12,
+        category: "Literasi Membaca",
+        question: "Arti ungkapan **\"panjang tangan\"** dalam percakapan sehari-hari adalah ....",
+        options: ["Suka menolong", "Suka mencuri", "Sombong", "Dermawan"],
+        correct: 1,
+        explanation: "Panjang tangan adalah idiom atau ungkapan yang berarti suka mencuri."
+      },
+      {
+        id: 13,
+        category: "Literasi Membaca",
+        question: "Perhatikan kalimat berikut: \"Meskipun ujian sangat sulit, Rian tetap mengerjakannya dengan jujur.\"\nKata penghubung (konjungsi) pertentangan dalam kalimat tersebut adalah ....",
+        options: ["Meskipun", "sangat", "dengan", "dan"],
+        correct: 0,
+        explanation: "'Meskipun' adalah konjungsi antarkalimat atau intrakalimat yang menyatakan pertentangan."
+      },
+      {
+        id: 14,
+        category: "Literasi Membaca",
+        question: "Dalam penulisan surat resmi sekolah, bagian yang diletakkan di sudut kanan atas sebelum isi surat adalah ....",
+        options: ["Lampiran", "Tanggal surat", "Salam pembuka", "Tanda tangan kepala sekolah"],
+        correct: 1,
+        explanation: "Tanggal surat pada surat resmi biasanya diletakkan di sebelah kanan atas."
+      },
+      {
+        id: 15,
+        category: "Literasi Membaca",
+        question: "Kalimat perintah (imperatif) yang tepat untuk menjaga kebersihan kelas adalah ....",
+        options: [
+          "Siapa yang membuang sampah sembarangan di lantai?",
+          "Buanglah sampah pada tempat yang telah disediakan!",
+          "Siswa sedang membersihkan kelas bersama-sama.",
+          "Alangkah bersihnya lantai kelas kita hari ini."
+        ],
+        correct: 1,
+        explanation: "Kalimat perintah ditandai dengan seruan atau akhiran -lah serta bersifat menyuruh."
+      },
+      {
+        id: 16,
+        category: "Literasi Membaca",
+        question: "Bentuk kata baku yang benar di antara pilihan berikut adalah ....",
+        options: ["Apotik", "Apotek", "Jadual", "Nasehat"],
+        correct: 1,
+        explanation: "Kata baku yang terdaftar di KBBI adalah 'Apotek' (bukan apotik) dan 'Nasihat' (bukan nasehat)."
+      },
+      {
+        id: 17,
+        category: "Literasi Membaca",
+        question: "Bacalah kutipan biografi berikut:\n\n\"Ki Hajar Dewantara lahir di Yogyakarta pada tanggal 2 Mei 1889 dengan nama Raden Mas Soewardi Soerjaningrat. Ia dikenal sebagai bapak pendidikan nasional dan pendiri perguruan Taman Siswa.\"\n\nInformasi yang tidak sesuai dengan kutipan biografi di atas adalah ....",
+        options: [
+          "Ki Hajar Dewantara lahir di Yogyakarta.",
+          "Nama asli Ki Hajar Dewantara adalah Raden Mas Soewardi Soerjaningrat.",
+          "Ki Hajar Dewantara mendirikan perguruan Taman Siswa.",
+          "Ki Hajar Dewantara lahir pada tanggal 2 Mei 1908."
+        ],
+        correct: 3,
+        explanation: "Di teks tertulis lahir tanggal 2 Mei 1889, bukan 1908."
+      },
+      {
+        id: 18,
+        category: "Literasi Membaca",
+        question: "Makna imbuhan **ber-an** dalam kalimat \"Pohon-pohon di taman itu berGUGURAN daunnya\" adalah ....",
+        options: ["Saling", "Banyak dan terjadi sendiri", "Melakukan pekerjaan", "Dalam keadaan"],
+        correct: 1,
+        explanation: "Imbuhan ber-an pada kata berguguran menyatakan makna banyak dan terjadi dengan sendirinya."
+      },
+      {
+        id: 19,
+        category: "Literasi Membaca",
+        question: "Kalimat utama pada paragraf deduktif biasanya terletak di bagian ....",
+        options: ["Akhir paragraf", "Awal paragraf", "Tengah paragraf", "Seluruh kalimat"],
+        correct: 1,
+        explanation: "Paragraf deduktif adalah paragraf yang kalimat utamanya terletak di awal paragraf."
+      },
+      {
+        id: 20,
+        category: "Literasi Membaca",
+        question: "Puisi lama yang terdiri atas 4 baris setiap bait dengan bersajak a-b-a-b disebut ....",
+        options: ["Pantun", "Gurindam", "Syair", "Karmina"],
+        correct: 0,
+        explanation: "Pantun adalah puisi lama berbait 4 dengan rima atau persajakan a-b-a-b."
+      },
+      {
+        id: 21,
+        category: "Literasi Membaca",
+        question: "Kalimat langsung yang diubah menjadi kalimat tidak langsung harus memperhatikan penggunaan kata ganti orang. Kata ganti 'saya' dalam kalimat langsung akan berubah menjadi ... dalam kalimat tidak langsung.",
+        options: ["dia / ia", "kami", "mereka", "kita"],
+        correct: 0,
+        explanation: "Kata ganti 'saya' berubah menjadi 'dia' atau 'ia' saat diubah ke kalimat tidak langsung."
+      },
+      {
+        id: 22,
+        category: "Literasi Membaca",
+        question: "Bagian akhir dari sebuah cerita fiksi yang berisi pesan atau penyelesaian masalah disebut ....",
+        options: ["Orientasi", "Komplikasi", "Resolusi", "Abstraksi"],
+        correct: 2,
+        explanation: "Resolusi adalah bagian cerita yang memuat pemecahan masalah (penyelesaian)."
+      },
+      {
+        id: 23,
+        category: "Literasi Membaca",
+        question: "Penulisan huruf kapital yang benar pada kalimat berikut adalah ....",
+        options: [
+          "ayah pergi ke kota bandung minggu lalu.",
+          "Ayah pergi ke Kota Bandung minggu lalu.",
+          "Ayah pergi ke kota Bandung Minggu lalu.",
+          "ayah pergi ke Kota bandung minggu lalu."
+        ],
+        correct: 1,
+        explanation: "Huruf kapital digunakan pada awal kalimat, nama tempat (Bandung), serta sebutan kekerabatan yang dipakai sebagai pengganti nama diri (Ayah)."
+      },
+      {
+        id: 24,
+        category: "Literasi Membaca",
+        question: "Kamus besar yang memuat daftar kosa kata bahasa Indonesia resmi beserta artinya disebut ....",
+        options: ["Kamus Besar Bahasa Indonesia (KBBI)", "Tesaurus", "Atlas", "Ensiklopedia"],
+        correct: 0,
+        explanation: "KBBI (Kamus Besar Bahasa Indonesia) adalah kamus rujukan resmi bahasa Indonesia."
+      },
+      {
+        id: 25,
+        category: "Literasi Membaca",
+        question: "Teks yang bertujuan memberikan langkah-langkah atau cara melakukan/membuat sesuatu secara berurutan disebut teks ....",
+        options: ["Narasi", "Deskripsi", "Prosedur", "Eksposisi"],
+        correct: 2,
+        explanation: "Teks prosedur berisi panduan langkah-langkah kerja secara sistematis."
+      },
+
+      // --- NUMERASI MATEMATIKA (Soal 26 - 50) ---
+      {
+        id: 26,
+        category: "Numerasi Matematika",
+        question: "Ibu memiliki persediaan tepung terigu 4,5 kg. Ibu menggunakan 2,75 kg untuk membuat kue, lalu membeli lagi 1,5 kg. Total tepung terigu Ibu sekarang adalah ....",
+        options: ["2,75 kg", "3,25 kg", "4,25 kg", "4,75 kg"],
+        correct: 1,
+        explanation: "4,50 - 2,75 + 1,50 = 3,25 kg."
+      },
+      {
+        id: 27,
+        category: "Numerasi Matematika",
+        question: "Perhatikan pola bilangan: 3, 6, 11, 18, 27, ...\nSuku berikutnya adalah ....",
+        options: ["35", "37", "38", "40"],
+        correct: 2,
+        explanation: "Selisih berturut-turut +3, +5, +7, +9. Suku berikutnya ditambah +11 menjadi 27 + 11 = 38."
+      },
+      {
+        id: 28,
+        category: "Numerasi Matematika",
+        question: "Taman persegi panjang berukuran panjang 30 m dan lebar 16 m. Di sekeliling bagian dalam taman dibuat jalan setapak selebar 1 m. Luas taman di luar jalan setapak adalah ....",
+        options: ["392 m²", "416 m²", "480 m²", "528 m²"],
+        correct: 0,
+        explanation: "Ukuran baru: p = 28 m, l = 14 m. Luas = 28 × 14 = 392 m²."
+      },
+      {
+        id: 29,
+        category: "Numerasi Matematika",
+        question: "Lampu A menyala setiap 6 detik, lampu B setiap 8 detik. Jika menyala bersamaan pada detik ke-0, kapan kedua lampu menyala bersamaan lagi?",
+        options: ["Detik ke-16", "Detik ke-24", "Detik ke-32", "Detik ke-48"],
+        correct: 1,
+        explanation: "KPK dari 6 dan 8 adalah 24 detik."
+      },
+      {
+        id: 30,
+        category: "Numerasi Matematika",
+        question: "Hasil dari: 3.500 − 150 × 12 + 480 ÷ 16 adalah ....",
+        options: ["1.730", "1.750", "1.800", "1.830"],
+        correct: 0,
+        explanation: "3.500 - 1.800 + 30 = 1.730."
+      },
+      {
+        id: 31,
+        category: "Numerasi Matematika",
+        question: "Ayah berkendara dengan kecepatan 60 km/jam dari pukul 07.15 hingga 09.45. Jika Ayah beristirahat 30 menit di jalan, jarak yang ditempuh adalah ....",
+        options: ["120 km", "135 km", "150 km", "180 km"],
+        correct: 0,
+        explanation: "Waktu berkendara efektif = 2 jam. Jarak = 60 × 2 = 120 km."
+      },
+      {
+        id: 32,
+        category: "Numerasi Matematika",
+        question: "Bak penampungan berbentuk kubus dengan rusuk 1,5 meter terisi air 2/3 bagian. Volume air yang harus ditambahkan agar penuh adalah ....",
+        options: ["1.125 liter", "1.687,5 liter", "2.250 liter", "3.375 liter"],
+        correct: 0,
+        explanation: "Volume total = 3.375 liter. Kekurangan 1/3 bagian = 1.125 liter."
+      },
+      {
+        id: 33,
+        category: "Numerasi Matematika",
+        question: "Rata-rata nilai ulangan matematika dari 32 siswa dengan total nilai 2.700 adalah ....",
+        options: ["84,38", "85,00", "83,50", "86,20"],
+        correct: 0,
+        explanation: "2.700 ÷ 32 = 84,375 dibulatkan menjadi 84,38."
+      },
+      {
+        id: 34,
+        category: "Numerasi Matematika",
+        question: "Hasil dari: 3/4 + 1/2 − 0,25 dalam bentuk desimal adalah ....",
+        options: ["0,75", "1,00", "1,25", "1,50"],
+        correct: 1,
+        explanation: "0,75 + 0,50 - 0,25 = 1,00."
+      },
+      {
+        id: 35,
+        category: "Numerasi Matematika",
+        question: "Skala peta 1 : 300.000. Jarak pada peta 5 cm. Jarak sebenarnya adalah ....",
+        options: ["9 km", "12 km", "15 km", "18 km"],
+        correct: 2,
+        explanation: "5 cm × 300.000 = 1.500.000 cm = 15 km."
+      },
+      {
+        id: 36,
+        category: "Numerasi Matematika",
+        question: "FPB dari 48 dan 72 adalah ....",
+        options: ["12", "16", "24", "36"],
+        correct: 2,
+        explanation: "Faktorisasi 48 = 2⁴ × 3; 72 = 2³ × 3². FPB = 2³ × 3 = 24."
+      },
+      {
+        id: 37,
+        category: "Numerasi Matematika",
+        question: "Bentuk persen dari pecahan 3/8 adalah ....",
+        options: ["35%", "37,5%", "40%", "42,5%"],
+        correct: 1,
+        explanation: "3/8 × 100% = 300/8 % = 37,5%."
+      },
+      {
+        id: 38,
+        category: "Numerasi Matematika",
+        question: "Sebuah tabung memiliki jari-jari alas 7 cm dan tinggi 10 cm. Volume tabung tersebut adalah ... (π = 22/7)",
+        options: ["1.540 cm³", "1.230 cm³", "1.078 cm³", "2.120 cm³"],
+        correct: 0,
+        explanation: "Volume = π × r² × t = (22/7) × 7 × 7 × 10 = 1.540 cm³."
+      },
+      {
+        id: 39,
+        category: "Numerasi Matematika",
+        question: "Keliling lingkaran dengan diameter 28 cm adalah ... (π = 22/7)",
+        options: ["44 cm", "88 cm", "132 cm", "176 cm"],
+        correct: 1,
+        explanation: "Keliling = π × d = (22/7) × 28 = 88 cm."
+      },
+      {
+        id: 40,
+        category: "Numerasi Matematika",
+        question: "Ibu membeli 2 kodi piring dan 1 lusin gelas. Jumlah total buah piring dan gelas yang dibeli Ibu adalah ....",
+        options: ["40 buah", "48 buah", "52 buah", "60 buah"],
+        correct: 2,
+        explanation: "1 kodi = 20 buah (2 kodi = 40 buah). 1 lusin = 12 buah. Total = 40 + 12 = 52 buah."
+      },
+      {
+        id: 41,
+        category: "Numerasi Matematika",
+        question: "Hasil dari 3² + 4² − 5² adalah ....",
+        options: ["0", "12", "25", "-12"],
+        correct: 0,
+        explanation: "9 + 16 - 25 = 25 - 25 = 0."
+      },
+      {
+        id: 42,
+        category: "Numerasi Matematika",
+        question: "Sebuah mobil menghabiskan 8 liter bensin untuk menempuh jarak 96 km. Jika mobil menempuh jarak 240 km, bensin yang dihabiskan adalah ....",
+        options: ["16 liter", "18 liter", "20 liter", "24 liter"],
+        correct: 2,
+        explanation: "Konsumsi = 96 ÷ 8 = 12 km/liter. Bensin = 240 ÷ 12 = 20 liter."
+      },
+      {
+        id: 43,
+        category: "Numerasi Matematika",
+        question: "Luas permukaan kubus yang memiliki panjang rusuk 12 cm adalah ....",
+        options: ["864 cm²", "1.440 cm²", "1.728 cm²", "1.200 cm²"],
+        correct: 0,
+        explanation: "Luas Permukaan = 6 × s² = 6 × 12 × 12 = 864 cm²."
+      },
+      {
+        id: 44,
+        category: "Numerasi Matematika",
+        question: "Pecahan berikut yang nilainya paling besar adalah ....",
+        options: ["3/4", "5/8", "7/10", "2/3"],
+        correct: 0,
+        explanation: "Ubah ke desimal: 3/4 = 0,75; 5/8 = 0,625; 7/10 = 0,70; 2/3 = 0,67. Yang terbesar adalah 3/4."
+      },
+      {
+        id: 45,
+        category: "Numerasi Matematika",
+        question: "Umur Ayah 3 kali umur Ani. Jika selisih umur mereka adalah 30 tahun, umur Ani adalah ....",
+        options: ["10 tahun", "15 tahun", "20 tahun", "30 tahun"],
+        correct: 0,
+        explanation: "Perbandingan selisih = 3 - 1 = 2 bagian = 30 tahun. 1 bagian (Ani) = 30 ÷ 2 = 15 tahun. (Tunggu: 3x - x = 30 -> 2x = 30 -> x = 15 tahun)."
+      },
+      {
+        id: 46,
+        category: "Numerasi Matematika",
+        question: "Hasil dari 3 1/4 + 2 1/2 adalah ....",
+        options: ["5 1/4", "5 3/4", "6 1/4", "6 1/2"],
+        correct: 1,
+        explanation: "3 + 2 = 5. Pecahan: 1/4 + 2/4 = 3/4. Hasil = 5 3/4."
+      },
+      {
+        id: 47,
+        category: "Numerasi Matematika",
+        question: "Sebuah segitiga memiliki alas 16 cm dan tinggi 12 cm. Luas segitiga tersebut adalah ....",
+        options: ["96 cm²", "144 cm²", "192 cm²", "48 cm²"],
+        correct: 0,
+        explanation: "Luas = 1/2 × a × t = 1/2 × 16 × 12 = 96 cm²."
+      },
+      {
+        id: 48,
+        category: "Numerasi Matematika",
+        question: "Ibu membeli beras 5 kg seharga Rp65.000. Jika Ibu membeli 8 kg beras dengan harga yang sama per kilonya, uang yang harus dibayar adalah ....",
+        options: ["Rp96.000", "Rp104.000", "Rp112.000", "Rp120.000"],
+        correct: 1,
+        explanation: "Harga per kg = Rp65.000 ÷ 5 = Rp13.000. Harga 8 kg = 8 × Rp13.000 = Rp104.000."
+      },
+      {
+        id: 49,
+        category: "Numerasi Matematika",
+        question: "Nilai rata-rata ulangan 5 anak adalah 78. Ketika nilai Andi digabungkan, rata-ratanya menjadi 80. Nilai ulangan Andi adalah ....",
+        options: ["85", "88", "90", "92"],
+        correct: 2,
+        explanation: "Total 5 anak = 5 × 78 = 390. Total 6 anak = 6 × 80 = 480. Nilai Andi = 480 - 390 = 90."
+      },
+      {
+        id: 50,
+        category: "Numerasi Matematika",
+        question: "Sebuah balok memiliki ukuran panjang 15 cm, lebar 8 cm, dan tinggi 10 cm. Volume balok tersebut adalah ....",
+        options: ["1.050 cm³", "1.200 cm³", "1.350 cm³", "1.500 cm³"],
+        correct: 1,
+        explanation: "Volume = p × l × t = 15 × 8 × 10 = 1.200 cm³."
+      }
+    ];
+
+    // State Variables
+    let currentIndex = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+    let doubtFlags = new Array(questions.length).fill(false);
+    let timerInterval = null;
+    let totalSeconds = 45 * 60;
+    let initialSeconds = 45 * 60;
+    let currentTextSize = 'text-base';
+    let finalExamScore = 0;
+
+    // Start Simulation
+    function startSimulation() {
+      const modeMinutes = parseInt(document.getElementById('simulationMode').value, 10) || 45;
+      totalSeconds = modeMinutes * 60;
+      initialSeconds = totalSeconds;
+
+      document.getElementById('welcomeScreen').classList.add('hidden');
+      document.getElementById('examScreen').classList.remove('hidden');
+      document.getElementById('examScreen').classList.add('grid');
+      document.getElementById('examHeaderInfo').classList.remove('hidden');
+      document.getElementById('examHeaderInfo').classList.add('flex');
+
+      renderQuestionGrid();
+      loadQuestion(0);
+      startTimer();
+    }
+
+    // Timer
+    function startTimer() {
+      updateTimerDisplay();
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        totalSeconds--;
+        updateTimerDisplay();
+        if (totalSeconds <= 0) {
+          clearInterval(timerInterval);
+          submitExam();
+        }
+      }, 1000);
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(totalSeconds / 60);
+      const secs = totalSeconds % 60;
+      const display = document.getElementById('timerDisplay');
+      display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+      const timerBox = document.getElementById('timerBox');
+      if (totalSeconds <= 180) {
+        timerBox.className = "bg-rose-600 border border-rose-400 px-4 py-2 rounded-xl flex items-center space-x-2 shadow-inner";
+        display.className = "font-mono font-extrabold text-sm sm:text-base tracking-widest text-white";
+      }
+    }
+
+    // Load Question
+    function loadQuestion(index) {
+      currentIndex = index;
+      const q = questions[index];
+
+      document.getElementById('currentQNum').textContent = index + 1;
+      document.getElementById('currentQCategory').textContent = q.category;
+
+      const qTextEl = document.getElementById('questionText');
+      qTextEl.className = `${currentTextSize} text-slate-800 leading-relaxed font-semibold mb-6 whitespace-pre-line`;
+      qTextEl.textContent = q.question;
+
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      q.options.forEach((optText, optIdx) => {
+        const isSelected = userAnswers[index] === optIdx;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectOption(optIdx);
+        btn.className = `option-card w-full text-left p-4.5 rounded-2xl border-2 flex items-start space-x-4 ${
+          isSelected
+            ? 'border-blue-600 bg-blue-50/90 shadow-sm'
+            : 'border-slate-200 bg-white hover:border-blue-300 hover:bg-slate-50'
+        }`;
+
+        btn.innerHTML = `
+          <span class="w-8 h-8 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition ${
+            isSelected ? 'bg-blue-600 text-white shadow-xs' : 'bg-slate-100 text-slate-700 border border-slate-300'
+          }">
+            ${letters[optIdx]}
+          </span>
+          <span class="${currentTextSize} font-semibold ${isSelected ? 'text-blue-950' : 'text-slate-700'} pt-0.5">
+            ${optText}
+          </span>
+        `;
+        optionsContainer.appendChild(btn);
+      });
+
+      document.getElementById('doubtCheckbox').checked = doubtFlags[index];
+      document.getElementById('prevBtn').disabled = index === 0;
+
+      const nextBtn = document.getElementById('nextBtn');
+      if (index === questions.length - 1) {
+        nextBtn.innerHTML = `<span>Selesai</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+        nextBtn.onclick = () => confirmSubmitExam();
+      } else {
+        nextBtn.innerHTML = `<span>Selanjutnya</span><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>`;
+        nextBtn.onclick = () => navigateQuestion(1);
+      }
+
+      updateQuestionGrid();
+    }
+
+    function selectOption(optIdx) {
+      userAnswers[currentIndex] = optIdx;
+      loadQuestion(currentIndex);
+    }
+
+    function toggleDoubt() {
+      doubtFlags[currentIndex] = document.getElementById('doubtCheckbox').checked;
+      updateQuestionGrid();
+    }
+
+    function navigateQuestion(step) {
+      const target = currentIndex + step;
+      if (target >= 0 && target < questions.length) {
+        loadQuestion(target);
+      }
+    }
+
+    function changeFontSize(sizeClass) {
+      currentTextSize = sizeClass;
+      loadQuestion(currentIndex);
+    }
+
+    // Grid Palette
+    function renderQuestionGrid() {
+      const grid = document.getElementById('questionGrid');
+      grid.innerHTML = '';
+      questions.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `gridBtn-${idx}`;
+        btn.onclick = () => loadQuestion(idx);
+        btn.textContent = idx + 1;
+        grid.appendChild(btn);
+      });
+      updateQuestionGrid();
+    }
+
+    function updateQuestionGrid() {
+      let answeredCount = 0;
+      questions.forEach((_, idx) => {
+        const btn = document.getElementById(`gridBtn-${idx}`);
+        const isCurrent = idx === currentIndex;
+        const isAnswered = userAnswers[idx] !== null;
+        const isDoubt = doubtFlags[idx];
+
+        if (isAnswered) answeredCount++;
+
+        let baseClasses = "h-9 rounded-lg font-bold text-xs transition flex items-center justify-center relative ";
+
+        if (isDoubt) {
+          baseClasses += "bg-amber-400 text-slate-900 shadow-xs ";
+        } else if (isAnswered) {
+          baseClasses += "bg-emerald-500 text-white shadow-xs ";
+        } else {
+          baseClasses += "bg-slate-100 text-slate-700 border border-slate-300 hover:bg-slate-200 ";
+        }
+
+        if (isCurrent) {
+          baseClasses += "ring-2 ring-offset-1 ring-blue-600 font-black scale-105";
+        }
+
+        btn.className = baseClasses;
+      });
+
+      document.getElementById('answeredCounter').textContent = `${answeredCount} / ${questions.length} Terjawab`;
+    }
+
+    // Modals
+    function toggleMaterialModal() {
+      const modal = document.getElementById('materialModal');
+      modal.classList.toggle('hidden');
+      modal.classList.toggle('flex');
+    }
+
+    function openCertificateModal() {
+      const modal = document.getElementById('certificateModal');
+      const studentName = document.getElementById('studentNameInput').value.trim() || "Siswa Berprestasi";
+      document.getElementById('certStudentName').textContent = studentName;
+      document.getElementById('certScoreText').textContent = `Telah menyelesaikan simulasi TKA 50 Soal SD dengan nilai ${finalExamScore} (${finalExamScore >= 85 ? 'Sangat Memuaskan' : 'Baik'})`;
+      
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      document.getElementById('certDateStr').textContent = new Date().toLocaleDateString('id-ID', options);
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCertificateModal() {
+      const modal = document.getElementById('certificateModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function confirmSubmitExam() {
+      const unanswered = userAnswers.filter(a => a === null).length;
+      const doubts = doubtFlags.filter(d => d === true).length;
+      const modalText = document.getElementById('confirmModalText');
+
+      let msg = "Apakah kamu yakin ingin mengakhiri simulasi dan melihat hasil evaluasi?";
+      if (unanswered > 0 || doubts > 0) {
+        msg = `Perhatian! Masih ada <strong>${unanswered} soal belum dijawab</strong> dan <strong>${doubts} soal bertanda ragu-ragu</strong>. Yakin ingin mengumpulkan?`;
+      }
+      modalText.innerHTML = msg;
+
+      const modal = document.getElementById('confirmModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeConfirmModal() {
+      const modal = document.getElementById('confirmModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Submit & Evaluation
+    function submitExam() {
+      closeConfirmModal();
+      if (timerInterval) clearInterval(timerInterval);
+
+      document.getElementById('examScreen').classList.add('hidden');
+      document.getElementById('examScreen').classList.remove('grid');
+      document.getElementById('examHeaderInfo').classList.add('hidden');
+      document.getElementById('resultScreen').classList.remove('hidden');
+
+      const studentName = document.getElementById('studentNameInput').value.trim() || "Siswa Berprestasi";
+      document.getElementById('resultStudentName').textContent = studentName;
+
+      let correctCount = 0;
+      const categoryStats = {};
+
+      questions.forEach((q, idx) => {
+        if (!categoryStats[q.category]) {
+          categoryStats[q.category] = { correct: 0, total: 0 };
+        }
+        categoryStats[q.category].total++;
+
+        if (userAnswers[idx] === q.correct) {
+          correctCount++;
+          categoryStats[q.category].correct++;
+        }
+      });
+
+      finalExamScore = Math.round((correctCount / questions.length) * 100);
+      const elapsedSeconds = initialSeconds - totalSeconds;
+      const elapsedMins = Math.floor(elapsedSeconds / 60);
+      const elapsedSecs = elapsedSeconds % 60;
+
+      document.getElementById('finalScoreDisplay').textContent = finalExamScore;
+      document.getElementById('correctCountDisplay').textContent = `${correctCount} / ${questions.length} Benar`;
+      document.getElementById('timeTakenDisplay').textContent = `⏱️ Waktu Pengerjaan: ${elapsedMins} menit ${elapsedSecs} detik`;
+      document.getElementById('accuracyDisplay').textContent = `🎯 Akurasi: ${finalExamScore}%`;
+
+      // Certificate eligibility check (Score >= 80)
+      if (finalExamScore >= 80) {
+        document.getElementById('certBannerBox').classList.remove('hidden');
+        document.getElementById('certBannerBox').classList.add('flex');
+      } else {
+        document.getElementById('certBannerBox').classList.add('hidden');
+      }
+
+      // Predicate
+      const predicateEl = document.getElementById('resultPredicate');
+      if (finalExamScore >= 85) {
+        predicateEl.textContent = "🌟 Predikat: Sangat Memuaskan (Luar Biasa, Kemampuan Literasi & Numerasi Sangat Unggul!)";
+      } else if (finalExamScore >= 70) {
+        predicateEl.textContent = "👍 Predikat: Baik (Tingkatkan sedikit lagi ketelitianmu!)";
+      } else {
+        predicateEl.textContent = "💪 Predikat: Cukup (Pelajari modul materi dan coba simulasi lagi!)";
+      }
+
+      // Category breakdown
+      const catContainer = document.getElementById('categoryBreakdownContainer');
+      catContainer.innerHTML = '';
+      Object.keys(categoryStats).forEach(catName => {
+        const stat = categoryStats[catName];
+        const pct = Math.round((stat.correct / stat.total) * 100);
+        let barColor = 'bg-emerald-500';
+        if (pct < 50) barColor = 'bg-rose-500';
+        else if (pct < 75) barColor = 'bg-amber-500';
+
+        catContainer.innerHTML += `
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-slate-700">${catName}</span>
+              <span class="text-xs font-black text-blue-600">${pct}%</span>
+            </div>
+            <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden mb-2">
+              <div class="${barColor} h-full rounded-full transition-all duration-500" style="width: ${pct}%"></div>
+            </div>
+            <p class="text-[11px] text-slate-500 font-semibold">Benar ${stat.correct} dari ${stat.total} soal</p>
+          </div>
+        `;
+      });
+
+      renderReviewList('all');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Filter Review
+    function filterReview(filterType) {
+      ['all', 'wrong', 'correct'].forEach(type => {
+        const btn = document.getElementById(`filter${type.charAt(0).toUpperCase() + type.slice(1)}`);
+        if (type === filterType) {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 text-white transition shadow-xs";
+        } else {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+        }
+      });
+      renderReviewList(filterType);
+    }
+
+    function renderReviewList(filterType) {
+      const container = document.getElementById('reviewContainer');
+      container.innerHTML = '';
+      const letters = ['A', 'B', 'C', 'D'];
+
+      questions.forEach((q, idx) => {
+        const userAns = userAnswers[idx];
+        const isCorrect = userAns === q.correct;
+
+        if (filterType === 'wrong' && isCorrect) return;
+        if (filterType === 'correct' && !isCorrect) return;
+
+        const statusBadge = isCorrect
+          ? `<span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3.5 py-1 rounded-full flex items-center gap-1 shadow-xs">✓ Jawaban Benar</span>`
+          : userAns === null
+          ? `<span class="bg-slate-200 text-slate-700 text-xs font-extrabold px-3.5 py-1 rounded-full flex items-center gap-1">⚪ Tidak Dijawab</span>`
+          : `<span class="bg-rose-100 text-rose-800 text-xs font-extrabold px-3.5 py-1 rounded-full flex items-center gap-1 shadow-xs">✗ Jawaban Kurang Tepat</span>`;
+
+        let optionsHtml = '';
+        q.options.forEach((optText, optIdx) => {
+          const isThisCorrect = optIdx === q.correct;
+          const isThisUser = optIdx === userAns;
+
+          let optStyle = "border-slate-200 bg-white text-slate-700";
+          let badgeText = "";
+
+          if (isThisCorrect) {
+            optStyle = "border-emerald-500 bg-emerald-50 text-emerald-950 font-bold";
+            badgeText = `<span class="ml-auto text-xs font-extrabold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-md">Kunci Jawaban</span>`;
+          } else if (isThisUser && !isThisCorrect) {
+            optStyle = "border-rose-400 bg-rose-50 text-rose-900";
+            badgeText = `<span class="ml-auto text-xs font-extrabold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-md">Jawabanmu</span>`;
+          }
+
+          optionsHtml += `
+            <div class="p-3.5 rounded-2xl border ${optStyle} flex items-center gap-3.5 text-sm font-medium">
+              <span class="w-6.5 h-6.5 rounded-xl flex items-center justify-center font-black text-xs shrink-0 ${
+                isThisCorrect ? 'bg-emerald-600 text-white' : isThisUser ? 'bg-rose-600 text-white' : 'bg-slate-100 text-slate-600'
+              }">${letters[optIdx]}</span>
+              <span>${optText}</span>
+              ${badgeText}
+            </div>
+          `;
+        });
+
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-3xl shadow-xl border border-slate-200/80 overflow-hidden";
+        card.innerHTML = `
+          <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center space-x-3">
+              <span class="font-black text-sm text-blue-700">Soal No. ${idx + 1}</span>
+              <span class="text-slate-300">•</span>
+              <span class="text-xs font-bold text-slate-600">${q.category}</span>
+            </div>
+            ${statusBadge}
+          </div>
+          <div class="p-6 sm:p-8 space-y-4">
+            <p class="text-sm sm:text-base text-slate-800 font-semibold whitespace-pre-line leading-relaxed">${q.question}</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              ${optionsHtml}
+            </div>
+            <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-5 mt-4">
+              <p class="text-xs font-black text-blue-900 uppercase tracking-wider mb-1.5">💡 Pembahasan & Langkah Penyelesaian:</p>
+              <p class="text-xs sm:text-sm text-blue-950 whitespace-pre-line leading-relaxed font-semibold">${q.explanation}</p>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function resetSimulation() {
+      userAnswers = new Array(questions.length).fill(null);
+      doubtFlags = new Array(questions.length).fill(false);
+      currentIndex = 0;
+
+      document.getElementById('resultScreen').classList.add('hidden');
+      document.getElementById('welcomeScreen').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
